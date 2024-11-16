@@ -22,14 +22,14 @@ class Journal
         string userEntry = Console.ReadLine();
 
         // Prepare the entry
-        Entry NewEntry = new Entry
+        Entry newEntry = new Entry
         {
             _date = $"Date: {dateText}", 
             _promptText = $"Prompt: {randomPrompt}",
             _entryText = userEntry  
         };
                 
-        _entries.Add(NewEntry._date + "," + NewEntry._promptText + "," + NewEntry._entryText);
+        _entries.Add(newEntry._date + "," + newEntry._promptText + "," + newEntry._entryText);
     }
 
     public void DisplayAll()
@@ -67,10 +67,10 @@ class Journal
         // get the filename from user
         Console.Write("Enter the filename to load: ");
         string fName = Console.ReadLine(); 
-        string filename = $"{fName}.txt";
+        string fileName = $"{fName}.txt";
 
         // load the file
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        string[] lines = System.IO.File.ReadAllLines(fileName);
 
         // torn the lines into entries
         foreach (string line in lines)
@@ -82,14 +82,14 @@ class Journal
             string _entryText = parts[2];
 
             // create the entry
-            Entry NewEntry = new Entry
+            Entry newEntry = new Entry
             {
                 _date = _date, 
                 _promptText = _promptText,
                 _entryText = _entryText
             };
             
-            _entries.Add(NewEntry._date + "," + NewEntry._promptText + "," + NewEntry._entryText);
+            _entries.Add(newEntry._date + "," + newEntry._promptText + "," + newEntry._entryText);
         }
 
         // confirmation of the load
