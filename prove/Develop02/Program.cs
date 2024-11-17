@@ -1,5 +1,8 @@
 using System;
 
+// exceed requirements
+// Note: in Journal.cs, I added a check to make sure that the file to load exists and ask the user for the name again if it doesn't.
+
 class Program
 {
     static void Main(string[] args)

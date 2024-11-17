@@ -62,6 +62,11 @@ class Journal
         System.IO.File.WriteAllLines(fileName, _entries);
     }
 
+    
+    /// Loads all entries from a text file. The file is in the CSV format with the date, prompt, and entry text separated by commas.
+    /// The user is asked for the filename and if the file does not exist then the user can enter a new filename or type 'quit' to give up.
+    /// The entries are stored in the _entries list.
+    
     public void LoadFromFile()
     {
         // get the filename from user
