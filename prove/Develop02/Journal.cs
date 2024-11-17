@@ -69,28 +69,49 @@ class Journal
         string fName = Console.ReadLine(); 
         string fileName = $"{fName}.txt";
 
-        // load the file
-        string[] lines = System.IO.File.ReadAllLines(fileName);
+        bool fileExists = false;
 
-        // torn the lines into entries
-        foreach (string line in lines)
+        while (!fileExists)
         {
-            string[] parts = line.Split(",");
-
-            string _date = parts[0];
-            string _promptText = parts[1];
-            string _entryText = parts[2];
-
-            // create the entry
-            Entry newEntry = new Entry
+            if (System.IO.File.Exists(fileName))
             {
-                _date = _date, 
-                _promptText = _promptText,
-                _entryText = _entryText
-            };
-            
-            _entries.Add(newEntry._date + "," + newEntry._promptText + "," + newEntry._entryText);
+                fileExists = true;
+
+                // load the file
+                string[] lines = System.IO.File.ReadAllLines(fileName);
+
+                // turn the lines into entries
+                foreach (string line in lines)
+                {
+                    string[] parts = line.Split(",");
+
+                    string _date = parts[0];
+                    string _promptText = parts[1];
+                    string _entryText = parts[2];
+
+                    // create the entry
+                    Entry newEntry = new Entry
+                    {
+                        _date = _date,
+                        _promptText = _promptText,
+                        _entryText = _entryText
+                    };
+
+                    _entries.Add(newEntry._date + "," + newEntry._promptText + "," + newEntry._entryText);
+                }
+            }
+            else
+            {
+                Console.WriteLine("File does not exist. Please enter the filename again or type 'quit' to give up:");
+                fName = Console.ReadLine();
+                if (fName.ToLower() == "quit")
+                {
+                    break;
+                }
+                fileName = $"{fName}.txt";
+            }
         }
+        
 
         // confirmation of the load
         Console.WriteLine("Journal loaded.");
