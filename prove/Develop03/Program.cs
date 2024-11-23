@@ -2,13 +2,19 @@ using System;
 using System.Collections.Generic;
 
 // was add more scriptures with ramdom choice in the beginning 
+// Create a list of scripture options from the Bible and Book of Mormon
+// Each scripture is defined with a reference (book, chapter, verse) and a text
+// Select a random scripture from the list
+
 class Program
 {
 
 
     static void Main(string[] args)
     {
+        
         // Create a list of scripture options from the Bible and Book of Mormon
+        
         List<Scripture> scriptures = new List<Scripture>
         {
             new Scripture(new Reference("Proverbs", 3, 5, 6), "Trust in the LORD with all your heart and lean not on your understanding; in all your ways submit to him, and he will make your paths straight."),
@@ -17,9 +23,9 @@ class Program
             new Scripture(new Reference("Ether", 12, 27), "And if men come unto me I will show unto them their weakness.")
         };
 
-        // Select a random scripture
+        // Select a random scripture from the list
         Random random = new Random();
-        Scripture selectedScripture = scriptures[random.Next(scriptures.Count)];
+        Scripture selectedScripture = scriptures[random.Next(scriptures.Count)];// select a random scripture from the list
 
         // Display and interact with the selected scripture
         while (!selectedScripture.isCompletelyHidden())
