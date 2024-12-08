@@ -2,6 +2,10 @@ using System;
 
 class Program
 {
+        
+        /// This sample program shows how to create an address, a customer, products, and an order.
+        /// It then displays the packing label, shipping label, and total cost of the order.
+       
     static void Main(string[] args)
     {
         // Create an address
