@@ -4,51 +4,51 @@ using System.Threading;
 
 public abstract class Activity
 {
-    private int duration;
+    private int _duration;
 
-    public abstract void StartActivity();
+    public abstract void startActivity();
 
-    public int GetDuration()
+    public int getDuration()
     {
-        return duration;
+        return _duration;
     }
 
-    public void DisplayStartMessage(string activityName, string description)
+    public void displayStartMessage(string activityName, string description)
     {
         Console.WriteLine($"\n{activityName}\n{description}\n");
         if(activityName == "Breathing Activity: 4-7-8 Breathing technique")
         {
             Console.WriteLine("Please enter number of repetitions: ");
-            duration = int.Parse(Console.ReadLine()); 
+            _duration = int.Parse(Console.ReadLine()); 
         }
         else
         {
             Console.WriteLine("Please enter the duration (in seconds): ");
-            duration = int.Parse(Console.ReadLine()); 
+            _duration = int.Parse(Console.ReadLine()); 
         }
         
         Console.WriteLine("Get ready to start...");
         Thread.Sleep(2000); // Pause for 2 seconds
     }
 
-    public void DisplayEndMessage(string activityName)
+    public void displayEndMessage(string activityName)
     {
         if(activityName == "Breathing Activity: 4-7-8 Breathing technique")
         {
-            Console.WriteLine($"You have completed {activityName} for {duration} Repetitions.");
+            Console.WriteLine($"You have completed {activityName} for {_duration} Repetitions.");
         }
         else
         {
-            Console.WriteLine($"You have completed {activityName} for {duration} seconds.");
+            Console.WriteLine($"You have completed {activityName} for {_duration} seconds.");
         }
         
         Console.WriteLine("Good job!");
         Thread.Sleep(2000); // Pause for 2 seconds
     }
 
-    public void CountdownNumber(int duration)
+    public void countdownNumber(int _duration)
     {
-        for (int i = duration; i > 0; i--)
+        for (int i = _duration; i > 0; i--)
         {
             Console.Write(i);      
             Thread.Sleep(1000);    
@@ -57,18 +57,18 @@ public abstract class Activity
         Console.WriteLine();       
     }
    
-    public void Countdown()
+    public void countdown()
     {
-        for (int i = 0; i < duration; i++)
+        for (int i = 0; i < _duration; i++)
         {
             Console.Write(".");
             Thread.Sleep(1000);
         }
         Console.WriteLine();
     }
-    public void Countdown(int duration)
+    public void countdown(int _duration)
     {
-        int times = duration;
+        int times = _duration;
         for (int i = 0; i < times; i++)
         {
             Console.Write(".");

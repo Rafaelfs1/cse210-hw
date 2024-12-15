@@ -1,13 +1,13 @@
 using System;
-
+// added a real breathing activity that has a countdown for 4-7-8 sytem that provides results agaist anxiety, along the user to enter a number of repetitions and then the program will run that many times.
 
 class Program
 {
     static void Main(string[] args)
     {
-        bool running = true;
+        bool _running = true;
 
-        while (running)
+        while (_running)
         {
             // Display menu
             Console.Clear();
@@ -20,24 +20,24 @@ class Program
             );
             Console.Write("Select a choice from the menu:");
 
-            string choice = Console.ReadLine();
+            string _choice = Console.ReadLine();
 
-            Activity activity = null;
+            Activity _activity = null;
 
             // Create activity based on user choice
-            switch (choice)
+            switch (_choice)
             {
                 case "1":
-                    activity = new BreathingActivity();
+                    _activity = new BreathingActivity();
                     break;
                 case "2":
-                    activity = new ReflectionActivity();
+                    _activity = new ReflectionActivity();
                     break;
                 case "3":
-                    activity = new ListingActivity();
+                    _activity = new ListingActivity();
                     break;
                 case "4":
-                    running = false;
+                    _running = false;
                     break;
                 default:
                     Console.WriteLine("Invalid choice, please select again.");
@@ -46,9 +46,9 @@ class Program
             }
 
             // Start activity
-            if (activity != null)
+            if (_activity != null)
             {
-                activity.StartActivity();
+                _activity.startActivity();
             }
         }
     }
