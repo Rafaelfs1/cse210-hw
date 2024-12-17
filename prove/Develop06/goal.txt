@@ -1,0 +1,4 @@
+750
+SimpleGoal|walk at park|walk 30 minute at park|50|True
+EternalGoal|read the BOM|read 10 minute fo the book of mormon |50
+ChecklistGoal|attend at temple|attend 3 times at temple and performe a ordenance|50|3|500|3
